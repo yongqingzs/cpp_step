@@ -4,6 +4,27 @@
 
 int main(void)
 {
+    void official_test(void);
+    void inherit_test(void);
+
+    int type = 1;
+    switch (type)
+    {
+    case 0:
+        official_test();
+        break;
+    case 1:
+        inherit_test();
+        break;
+    default:
+        break;
+    }
+
+    return 0;
+}
+
+void official_test(void)
+{
     using std::cout;
     using std::endl;
     TableTennisPlayer player1("Tara", "Boomdea", true);
@@ -26,5 +47,18 @@ int main(void)
     cout << "Name: ";
     rplayer2.Name();
     cout << "; Rating: " << rplayer2.Rating() << endl;
-    return 0;
+}
+
+void inherit_test(void)
+{
+    RatedPlayer rplayer1(1140, "Mallory", "Duck", true);
+    RatedPlayer rplayer2(1212, "Mallory1", "Duck1", true);
+    TableTennisPlayer * table_ptr = &rplayer1;
+    TableTennisPlayer & table_ref = rplayer2;
+    TableTennisPlayer table;
+    // RatedPlayer * rated_ptr = &table;
+
+    table_ptr->Name();
+    std::cout << "\n";
+    table_ref.Name();
 }
