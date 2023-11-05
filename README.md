@@ -26,7 +26,15 @@ double warming = 0.3;
 #endif
 ```
 
-
-## TODO
-1. 函数重载
-2. 命名空间
+## class相关
+1. 虚函数在class的继承中起作用，对于基类指针作用很大，虚函数可以使用动态联编
+```cpp
+int main()
+{
+    // 见src_for_multi.animal
+    dog d1;
+    animal * a1 = &(d1);
+    a1->walk(100);
+    a1->identity();
+}
+```
